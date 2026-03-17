@@ -87,9 +87,9 @@ def _read_file(f) -> pd.DataFrame:
     name = f.name.lower()
     if name.endswith('.csv'):
         return pd.read_csv(f, encoding='cp949')
-    elif name.endswith('.xls'):
-        return pd.read_excel(f, engine='xlrd', header=0)
     else:
+        # .xls / .xlsx 모두 openpyxl로 처리
+        # (xlrd 2.x는 .xls 미지원, openpyxl은 양쪽 모두 처리 가능)
         return pd.read_excel(f, engine='openpyxl', header=0)
 
 def _clean(df: pd.DataFrame) -> pd.DataFrame:
