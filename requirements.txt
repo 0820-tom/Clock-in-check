@@ -1,6 +1,0 @@
-pandas
-xlrd==1.2.0
-openpyxl
-streamlit==1.41.1
-altair==5.5.0
-pillow==11.1.0
